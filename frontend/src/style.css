@@ -1,0 +1,91 @@
+/* Colors: deep aubergine background, blush rose accent, ivory text */
+:root {
+  --bg: #1c1219;
+  --panel: rgba(46, 29, 40, 0.92);
+  --line: #5a3d4f;
+  --accent: #e9a6a6;
+  --text: #f6ece6;
+  --muted: #b79fa8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; color: var(--text); font-family: "Barlow", sans-serif;
+  background: radial-gradient(circle at 50% 30%, #3b2332, var(--bg) 70%);
+  min-height: 100vh;
+}
+h1, h2, h4, .logo, .btn, .menu-item, label { font-family: "Rajdhani", sans-serif; }
+.logo { font-size: 28px; font-weight: 700; color: var(--accent); }
+.muted { color: var(--muted); }
+.error { color: #ff6b5b; }
+.success { color: #7bd88f; }
+.link { cursor: pointer; text-align: center; }
+
+.panel { background: var(--panel); border: 1px solid var(--line); padding: 20px; margin-bottom: 16px; }
+input, select {
+  width: 100%; padding: 10px; margin: 6px 0 12px; background: #170e14;
+  border: 1px solid var(--line); color: var(--text); font-size: 15px;
+}
+input:focus, select:focus, button:focus-visible { outline: 2px solid var(--accent); }
+label { display: block; font-size: 17px; margin-top: 8px; }
+
+.btn {
+  display: inline-block; background: var(--accent); color: #2a1620; border: none; cursor: pointer;
+  padding: 10px 22px; font-size: 18px; font-weight: 700; text-decoration: none;
+}
+.btn.small { padding: 5px 14px; font-size: 15px; }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn.danger { background: #b4455a; color: white; }
+
+/* Login */
+.login-page { min-height: 100vh; display: grid; place-items: center; }
+.login-box { width: 340px; }
+.login-box .btn { width: 100%; }
+
+/* Lobby (game screen) */
+.lobby { min-height: 100vh; display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: center; padding: 0 40px; }
+.topbar { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 16px 40px; }
+.menu { display: flex; flex-direction: column; gap: 12px; }
+.menu.right { align-items: flex-end; }
+.menu-item {
+  background: var(--panel); border-left: 4px solid var(--accent); color: var(--text);
+  padding: 16px 22px; font-size: 24px; text-decoration: none; width: 280px;
+}
+.menu-item:hover { background: #3a2432; }
+.menu-item.locked { border-left-color: var(--line); color: var(--muted); }
+.menu-item small { display: block; font-size: 14px; color: var(--accent); }
+.stage { display: flex; flex-direction: column; align-items: center; position: relative; }
+.stage .character { height: 62vh; position: relative; z-index: 1; }
+.player-name { font-family: "Rajdhani", sans-serif; font-size: 26px; margin-bottom: 6px; }
+.platform {
+  width: 320px; height: 40px; border-radius: 50%; margin-top: -30px;
+  background: radial-gradient(ellipse, rgba(233,166,166,0.35), transparent 70%);
+}
+
+/* Other pages */
+.page { max-width: 1000px; margin: 0 auto; padding: 24px; }
+.page.narrow { max-width: 520px; }
+.center { text-align: center; }
+.back { color: var(--accent); text-decoration: none; }
+.two-col { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px; }
+.preview { display: grid; place-items: center; }
+.preview .character { height: 420px; }
+.swatches { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 14px; }
+.swatch { width: 34px; height: 34px; border-radius: 50%; border: 3px solid transparent; cursor: pointer; }
+.swatch.active { border-color: white; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 14px; }
+.chip { background: #170e14; color: var(--text); border: 1px solid var(--line); padding: 6px 14px; cursor: pointer; text-transform: capitalize; }
+.chip.active { background: var(--accent); color: #2a1620; }
+.avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.row input, .row select { flex: 1; min-width: 130px; margin: 0; }
+.filters { margin-bottom: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+.item img, .noimg { width: 100%; height: 200px; object-fit: cover; background: #170e14; display: grid; place-items: center; color: var(--muted); }
+
+@media (max-width: 800px) {
+  .lobby { grid-template-columns: 1fr; padding: 70px 16px 20px; gap: 16px; }
+  .menu.right { align-items: stretch; }
+  .menu-item { width: 100%; }
+  .two-col { grid-template-columns: 1fr; }
+}
